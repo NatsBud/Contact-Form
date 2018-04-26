@@ -67,10 +67,12 @@ $body = '<h2>Contact Request</h2>
     </form>
   </div>
 </nav>
-<div class="container">
+<div class="container" style="width:50%">
 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
   <fieldset>
-    <legend>Basic Contact Form</legend>
+    <div style="margin:10% 0 5% 0; text-align:center">
+      <legend>Basic Contact Form</legend>
+    </div>
     <div class="form-group">
       <input type="text" name="name" class="form-control"  placeholder="Full Name" value="<?php echo isset($_POST['name']) ? $name : ''; ?>">
     </div>
