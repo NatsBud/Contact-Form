@@ -1,18 +1,14 @@
 <?php 
 $msg = '';
 $msgClass = '';
-
 if(filter_has_var(INPUT_POST, 'submit')){
   $name = htmlspecialchars($_POST['name']);
   $email = htmlspecialchars($_POST['email']);
   $message = htmlspecialchars($_POST['message']);
-
   if(!empty($email) && !empty($name) && !empty($message)){
-
     if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
       $msg = 'Please use a valid email fields';
-      $msgClass = 'alert-danger';
-     
+      $msgClass = 'alert-danger';  
     } else {
     $toEmail = 'nathaniel@nathanbud.com';
 $subject =  'Contact Request From' .$name;
@@ -20,14 +16,11 @@ $body = '<h2>Contact Request</h2>
          <h4>Name</h4><p>'.$name.'</p>
          <h4>Name</h4><p>'.$email.'</p>
          <h4>Name</h4><p>'.$message.'</p>';
-
          $headers = "MIME-Version: 1.0" ."\r\n";
          $headers .= "Content-Type:text/html;charset=UTF-8"."\r\n";
          $headers .= "From: ".$name. "<".$email.">". "\r\n";
-
          if(mail($toEmail,$subject,$body,$headers)){
-             $msg = 'Message sent';
-            
+             $msg = 'Message sent';        
          }else{
              $msg = 'Message NOT sent';
          }
@@ -38,7 +31,6 @@ $body = '<h2>Contact Request</h2>
   } 
 }   
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,7 +68,6 @@ $body = '<h2>Contact Request</h2>
   </div>
 </nav>
 <div class="container">
-
 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
   <fieldset>
     <legend>Basic Contact Form</legend>
