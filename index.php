@@ -7,7 +7,7 @@ if(filter_has_var(INPUT_POST, 'submit')){
   $message = htmlspecialchars($_POST['message']);
   if(!empty($email) && !empty($name) && !empty($message)){
     if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
-      $msg = 'Please use a valid email fields';
+      $msg = 'Please use a valid email';
       $msgClass = 'alert-danger';  
     } else {
     $toEmail = 'nathaniel@nathanbud.com';
